@@ -11,4 +11,10 @@ public class PrepinaniScen : MonoBehaviour
     {
         SceneManager.LoadScene(nazev);
     }
+
+    public void GameQuit()
+    {
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
 }
