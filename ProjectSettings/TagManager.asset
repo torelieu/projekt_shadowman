@@ -50,9 +50,15 @@ TagManager:
   - name: path
     uniqueID: 1983643585
     locked: 0
+  - name: budova
+    uniqueID: 3477816407
+    locked: 0
+  - name: stromHore
+    uniqueID: 3825925825
+    locked: 0
   - name: hrac
     uniqueID: 511437303
     locked: 0
-  - name: strom
+  - name: stromDole
     uniqueID: 2045609585
     locked: 0

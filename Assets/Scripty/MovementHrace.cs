@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class MovementHrace : MonoBehaviour
 {
-    public float speed = 5f; // Adjust the speed as needed
+    public float speed = 5f;
+
+    public Rigidbody2D rb;
+
+    Vector2 movement;
 
     void Update()
     {
-        // Get input from the WASD keys
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+    }
 
-        // Calculate the movement direction
-        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f).normalized;
-
-        // Update the player's position based on the input and speed
-        transform.Translate(movement * speed * Time.deltaTime);
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
     }
 }
