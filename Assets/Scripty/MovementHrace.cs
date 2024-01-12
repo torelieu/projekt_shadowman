@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementHrace : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 3.5f;
 
     public Rigidbody2D rb;
 

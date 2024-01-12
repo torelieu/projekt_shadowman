@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OpenMenuOnKey : MonoBehaviour
 {
-    public GameObject panel;
+    
     public Animator menuAnimator;
     private bool a = false;
 
@@ -13,8 +14,6 @@ public class OpenMenuOnKey : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && a == false)
         {
-            
-            // Trigger the animation when the Escape key is pressed
             menuAnimator.SetTrigger("ShowMenu");
             a = true;
         }
@@ -23,19 +22,6 @@ public class OpenMenuOnKey : MonoBehaviour
         {
             menuAnimator.SetTrigger("DisMenu");
             a = false;
-            
         }
-
-       
-    }
-
-    public void DisablePanel()
-    {
-        panel.SetActive(false);
-    }
-
-    public void EnablePanel()
-    {
-        panel.SetActive(true);
     }
 }
