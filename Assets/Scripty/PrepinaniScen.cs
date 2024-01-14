@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PrepinaniScen : MonoBehaviour
 {
-
     public void SceneSwitcher(string nazev)
     {
         SceneManager.LoadScene(nazev);
@@ -17,4 +16,6 @@ public class PrepinaniScen : MonoBehaviour
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
     }
+
+    
 }
