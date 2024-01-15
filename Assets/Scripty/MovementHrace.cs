@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovementHrace : MonoBehaviour
@@ -20,4 +21,6 @@ public class MovementHrace : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
     }
+
+    
 }
