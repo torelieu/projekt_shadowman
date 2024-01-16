@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class XpLvlLive : MonoBehaviour
 {
-    public int xp = 0;
-    public int level = 1;
-    public int money = 0;
+    private int xp = 0;
+    private int level = 1;
+    private int money = 0;
 
-    public GameObject questBtn;
+    [SerializeField] private GameObject questBtn;
 
-    public Text xpText;
-    public Text levelText;
-    public Text moneyText;
+    [SerializeField] private Text xpText;
+    [SerializeField] private Text levelText;
+    [SerializeField] private Text moneyText;
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class XpLvlLive : MonoBehaviour
 
     IEnumerator CompleteQuest()
     {
-        yield return new WaitForSeconds(5f); // Simulace èasu pro dojítí na místo
+        yield return new WaitForSeconds(5f); // Simulace èasu pro splnìní questu
 
         xp += 100;
         money += 30;
@@ -55,14 +55,12 @@ public class XpLvlLive : MonoBehaviour
 
     void LevelUp()
     {
-        int xpNeeded = 200 + (level - 1) * 100; // Výpoèet potøebných XP pro level up
+        int xpNeeded = 200 + (level - 1) * 100; //Výpoèet potøebných XP pro level up
 
         if (xp >= xpNeeded)
         {
             level++;
             xp -= xpNeeded;
-
-            // Mùžete pøidat další vlastnosti pøi level up, napøíklad zvýšení životù, síly, apod.
             LevelUp();
         }
     }
