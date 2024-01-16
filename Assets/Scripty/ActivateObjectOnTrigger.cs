@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class ActivateObjectOnTrigger : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] private Animator ourAnimator;
     [SerializeField] public Transform player;
     [SerializeField] public float activationDistance = 1f;
+=======
+    [SerializeField] private Transform player;
+    [SerializeField] private GameObject objectToActivate;
+    [SerializeField] private float activationDistance = 1f;
+    [SerializeField] private bool hasBeenActivated = false;
+>>>>>>> 77b9a5795366c5f54885d1a91709df55c603db2c
 
-    private bool hasBeenActivated = false;
-
-    void Update()
+    private void Update()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
