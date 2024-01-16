@@ -56,14 +56,22 @@ public class XpLvlLive : MonoBehaviour
     void LevelUp()
     {
         int xpNeeded = 200 + (level - 1) * 100; // Výpoèet potøebných XP pro level up
+        
 
-        if (xp >= xpNeeded)
+        if (xp >= xpNeeded && level <= 10)
         {
             level++;
             xp -= xpNeeded;
+            money += 70;
 
             // Mùžete pøidat další vlastnosti pøi level up, napøíklad zvýšení životù, síly, apod.
             LevelUp();
+        }
+        else if (xp>= xpNeeded && level > 10)
+        {
+            level++;
+            xp -= xpNeeded;
+            money += 120;
         }
     }
 }

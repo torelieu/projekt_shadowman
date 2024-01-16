@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ActivateObjectOnTrigger : MonoBehaviour
 {
-    public Transform player;
-    public GameObject objectToActivate;
-    public float activationDistance = 1f;
+    [SerializeField] private Animator ourAnimator;
+    [SerializeField] public Transform player;
+    [SerializeField] public float activationDistance = 1f;
 
     private bool hasBeenActivated = false;
 
@@ -17,12 +17,12 @@ public class ActivateObjectOnTrigger : MonoBehaviour
 
         if (distanceToPlayer <= activationDistance && !hasBeenActivated)
         {
-            objectToActivate.SetActive(true);
+            ourAnimator.SetTrigger("Show");
             hasBeenActivated = true;
         }
         else if (distanceToPlayer > activationDistance && hasBeenActivated)
         {
-            objectToActivate.SetActive(false);
+            ourAnimator.SetTrigger("Disable");
             hasBeenActivated = false;
         }
     }
