@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPrefabsDole : MonoBehaviour
 {
-    public GameObject[] rockPrefabs;
+    public GameObject[] otherPrefabs;
     public GameObject[] treePrefabs;
     public string spawnZoneTag = "SpawnZoneDole";
     [SerializeField] private int numberOfRocks;
@@ -13,7 +13,7 @@ public class SpawnPrefabsDole : MonoBehaviour
 
     private int rocksSpawned = 0;
     private int treesSpawned = 0;
-    private float minDistance = 2.0f;
+    private float minDistance = 1.0f;
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class SpawnPrefabsDole : MonoBehaviour
                 if (rocksSpawned < numberOfRocks)
                 {
                     Vector2 randomPoint = GetRandomPointInPolygon(zoneCollider);
-                    GameObject rockPrefab = rockPrefabs[Random.Range(0, rockPrefabs.Length)];
+                    GameObject rockPrefab = otherPrefabs[Random.Range(0, otherPrefabs.Length)];
 
                     if (IsFarEnoughFromOtherObjects(randomPoint, minDistance))
                     {

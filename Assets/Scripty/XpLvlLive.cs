@@ -7,7 +7,7 @@ public class XpLvlLive : MonoBehaviour
 {
     private int xp = 0;
     private int level = 1;
-    private int money = 0;
+    public static int money = 0;
 
     [SerializeField] private GameObject questBtn;
 
@@ -26,13 +26,14 @@ public class XpLvlLive : MonoBehaviour
         {
             questBtn.SetActive(true);
         }
+        UpdateUI();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         xpText.text = "XP: " + xp.ToString();
         levelText.text = "Level: " + level.ToString();
-        moneyText.text = "Money: $" + money.ToString();
+        moneyText.text = money.ToString();
     }
 
     public void AcceptQuest()
@@ -47,7 +48,6 @@ public class XpLvlLive : MonoBehaviour
 
         xp += 100;
         money += 30;
-
         LevelUp();
 
         UpdateUI();

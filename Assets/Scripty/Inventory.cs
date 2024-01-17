@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     public GameObject Sword;
+    public GameObject GoldenSword;
+    public GameObject DiamondSword;
     public GameObject Heal;
     public GameObject[] inventorySlots; // Array to hold your inventory slots
     public int highlightedSlotIndex = 0; // Index of the currently highlighted slot
     private bool slot1;
     private bool slot2;
     private bool nonSelected;
+    private GameObject[] Swords;
 
     private void Start()
     {
@@ -29,12 +33,31 @@ public class Inventory : MonoBehaviour
 
         if (slot1 == true)
         {
-            Sword.SetActive(true);
             Heal.SetActive(false);
+            if (StoreEvent.goldenSwordSelected == false && StoreEvent.diamondSwordSelected == false) 
+            { 
+                Sword.SetActive(true);
+                GoldenSword.SetActive(false);
+                DiamondSword.SetActive(false);
+            }
+            else if (StoreEvent.goldenSwordSelected == true && StoreEvent.diamondSwordSelected == false)
+            {
+                Sword.SetActive(false);
+                GoldenSword.SetActive(true);
+                DiamondSword.SetActive(false);
+            }
+            else if (StoreEvent.goldenSwordSelected == false && StoreEvent.diamondSwordSelected == true)
+            {
+                Sword.SetActive(false);
+                GoldenSword.SetActive(false);
+                DiamondSword.SetActive(true);
+            }
         }
         else if (slot2 == true)
         {
             Sword.SetActive(false);
+            GoldenSword.SetActive(false);
+            DiamondSword.SetActive(false);
             Heal.SetActive(true);
         }
     }
