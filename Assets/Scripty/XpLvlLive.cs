@@ -17,7 +17,7 @@ public class XpLvlLive : MonoBehaviour
 
     void Start()
     {
-        UpdateUI();
+
     }
 
     private void Update()
