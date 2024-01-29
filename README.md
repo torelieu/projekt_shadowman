@@ -9,6 +9,7 @@
 - Úvod
 - Inspirace
 - Popis pro uživatele
+- Ukázka
 
 ### 1. Úvod
 
@@ -48,5 +49,11 @@ Ve hře samotné se hráč pohybuje pomocí tlačítek WASD a pro přepínaní i
 otevření menu hráč stiskne Escape, kde bude tlačítko exit a settings.
 Pro švihnutí mečem hráč stiskne levé tlačítko myši.\
 Vchodem do žluté zóny se hráči otevře UI (když je to obchod tak vyjede panel obchodu apod.).
+
+### 4. Ukázka
+
+Ukázka herní mapy:
+
+![Mapa](https://i.postimg.cc/PrYM39yr/Sn-mek-obrazovky-2024-01-29-113041.png)
 
 
