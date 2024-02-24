@@ -9,6 +9,8 @@ TagManager:
   - SpawnZoneDole
   - SpawnZoneAutumn
   - SpawnZoneDoleAutumn
+  - SpawnZoneNormalDole
+  - SpawnZoneNormal
   layers:
   - Default
   - TransparentFX
