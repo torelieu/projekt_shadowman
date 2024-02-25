@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     public int highlightedSlotIndex = 0; // Index of the currently highlighted slot
     private bool slot1;
     private bool slot2;
-    private bool nonSelected;
+    private bool nonSelected = false;
     private GameObject[] Swords;
 
     private void Start()
@@ -64,19 +64,34 @@ public class Inventory : MonoBehaviour
 
     void HandleInput()
     {
-        
+
         // Change the highlighted slot index based on user input
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             highlightedSlotIndex = 0;
             slot1 = true;
             slot2 = false;
+            inventorySlots[0].GetComponent<HighlighItem>().Unhighlight();
+            inventorySlots[1].GetComponent<HighlighItem>().Unhighlight();
+            nonSelected = false;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             highlightedSlotIndex = 1;
             slot1 = false;
             slot2 = true;
+            nonSelected = false;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Heal.SetActive(false);
+            Sword.SetActive(false);
+            GoldenSword.SetActive(false);
+            DiamondSword.SetActive(false);
+            slot1 = false;
+            slot2 = false;
+            nonSelected = true;
         }
 
         // Ensure the highlighted index stays within the bounds of the inventory array
@@ -93,6 +108,11 @@ public class Inventory : MonoBehaviour
             {
                 // Highlight the current slot
                 inventorySlots[i].GetComponent<HighlighItem>().Highlight();
+            }
+            else if (nonSelected == true) 
+            {
+                inventorySlots[0].GetComponent<HighlighItem>().Unhighlight();
+                inventorySlots[1].GetComponent<HighlighItem>().Unhighlight();
             }
             else
             {
