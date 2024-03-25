@@ -7,7 +7,11 @@ public class MovementHrace : MonoBehaviour
 {
     public float speed = 3.5f;
 
+    public AudioSource walkingSFX;
+
     public Animator animator;
+
+    private bool isWalking;
 
     public Rigidbody2D rb;
 
@@ -17,6 +21,16 @@ public class MovementHrace : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            walkingSFX.enabled = true;
+        }
+        else
+        {
+            walkingSFX.enabled = false;
+        }
+
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
