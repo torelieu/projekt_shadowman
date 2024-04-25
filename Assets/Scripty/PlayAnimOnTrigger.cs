@@ -15,9 +15,6 @@ public class PlayAnimOnTrigger : MonoBehaviour
 
     private void Update()
     {
-        SwingSword();
-        if (StoreEvent.goldenSwordSelected)
-        SwingGoldenSword();
 
         if (Input.GetKeyDown(KeyCode.Escape) && a == false)
         {
@@ -29,21 +26,6 @@ public class PlayAnimOnTrigger : MonoBehaviour
         {
             menuAnimator.SetTrigger("DisMenu");
             a = false;
-        }
-    }
-
-    private void SwingSword()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            swordAnimator.SetTrigger("Click");
-        }
-    }
-    private void SwingGoldenSword()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            goldenSwordAnimator.SetTrigger("Click2");
         }
     }
 }

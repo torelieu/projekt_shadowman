@@ -7,7 +7,7 @@ public class ActivateObjectOnTrigger : MonoBehaviour
 {
     [SerializeField] private Animator ourAnimator;
     [SerializeField] public Transform player;
-    [SerializeField] public float activationDistance = 1f;
+    [SerializeField] public float activationDistance = 2f;
     [SerializeField] private bool hasBeenActivated = false;
 
     private void Update()
