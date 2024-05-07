@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +11,8 @@ public class Enemy : MonoBehaviour
     private int damage = 5;
     [SerializeField]
     private float speed = 1.5f;
+
+
 
     [SerializeField]
     private EnemyData data;

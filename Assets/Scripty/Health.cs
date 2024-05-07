@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
+    [SerializeField]
+    private int health = 100;
 
     public static int kills;
 
@@ -42,7 +45,6 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            kills += 1;
         }
     }
 
@@ -65,12 +67,13 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         if (gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
             kills += 1;
+            Debug.Log("Killed an enemy");
+            Destroy(gameObject);
         }
         
         if (gameObject.tag == "Player")

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  killsText: {fileID: 7378705307484850718, guid: 337b2196a6d7ce94192eb3377eef0383, type: 3}
 --- !u!114 &4555241027654727945
 MonoBehaviour:
   m_ObjectHideFlags: 0
