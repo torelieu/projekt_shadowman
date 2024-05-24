@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  killsText: {fileID: 7378705307484850718, guid: 337b2196a6d7ce94192eb3377eef0383, type: 3}
 --- !u!114 &4555241027654727945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d14d650653da345bdf64acbd01150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   speed: 1.5
   data: {fileID: 11400000, guid: 278c5cdc5a72f4948a8bccdd0464b1ab, type: 2}

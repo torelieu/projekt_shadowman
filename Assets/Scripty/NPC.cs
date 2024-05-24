@@ -38,10 +38,4 @@ public class NPC : MonoBehaviour
             timer = 0f;
         }
     }
-
-    // Method to interact with NPC when player is close enough
-    public void Interact()
-    {
-        
-    }
 }

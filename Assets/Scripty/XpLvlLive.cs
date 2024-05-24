@@ -65,7 +65,7 @@ public class XpLvlLive : MonoBehaviour
 
     private IEnumerator QuestCoroutine1()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(60f);
 
         if (Health.kills >= 1)
         {
@@ -80,7 +80,7 @@ public class XpLvlLive : MonoBehaviour
     }
     private IEnumerator QuestCoroutine2()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(180f);
 
         if (Health.kills >= 10)
         {
@@ -95,7 +95,7 @@ public class XpLvlLive : MonoBehaviour
     }
     private IEnumerator QuestCoroutine3()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(240f);
 
         if (Health.kills >= 25)
         {
@@ -110,7 +110,7 @@ public class XpLvlLive : MonoBehaviour
     }
     private IEnumerator QuestCoroutine4()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(360f);
 
         if (Health.kills >= 50)
         {
@@ -125,7 +125,7 @@ public class XpLvlLive : MonoBehaviour
     }
     private IEnumerator QuestCoroutine5()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(360f);
 
         if (Health.kills >= 100)
         {
