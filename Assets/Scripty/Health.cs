@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
 
     private int MAX_HEALTH = 100;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -50,6 +51,8 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
+        
+
         if (amount < 0)
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative healing");
@@ -59,11 +62,11 @@ public class Health : MonoBehaviour
 
         if (wouldBeOverMaxHealth)
         {
-            this.health = MAX_HEALTH;
+            this.health = this.MAX_HEALTH;
         }
         else
         {
-            this.health += amount;
+            this.GetComponent<Health>().health += amount;
         }
     }
 
