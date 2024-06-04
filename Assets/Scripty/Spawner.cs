@@ -7,12 +7,14 @@ public class Spawner : MonoBehaviour
     public GameObject objectToSpawn; // The object to spawn
     public int numberOfSpawns = 5; // Number of objects to spawn
     public Vector2 spawnAreaSize = new Vector2(5f, 5f); // Size of the spawn area
+    private bool playerEntered = false;
 
     // This method is called when another collider enters the trigger zone
     private void OnTriggerEnter2D(Collider2D other)
     {
+        playerEntered = true;
         // Check if the collider that entered the trigger is the player
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && playerEntered == true)
         {
             // Spawn the specified number of objects
             for (int i = 0; i < numberOfSpawns; i++)
@@ -27,6 +29,11 @@ public class Spawner : MonoBehaviour
                 Instantiate(objectToSpawn, (Vector2)transform.position + randomPosition, Quaternion.identity);
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        playerEntered = false;
     }
 
     // Draw the spawn area in the editor for visualization

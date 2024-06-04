@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
 
     public static int kills;
 
-    private int MAX_HEALTH = 100;
+    private int MAX_HEALTH = 200;
 
 
     // Update is called once per frame
@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            this.GetComponent<Health>().health += amount;
+            this.health += amount;
         }
     }
 

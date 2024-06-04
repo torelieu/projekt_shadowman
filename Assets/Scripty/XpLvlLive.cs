@@ -13,9 +13,13 @@ public class XpLvlLive : MonoBehaviour
 
     public Text text;
 
+    public Text timeText;
+
     public Text killText;
 
     private int c = 0;
+
+    string textCompleted = "Quest Completed Succesfuly";
 
 
 
@@ -36,6 +40,8 @@ public class XpLvlLive : MonoBehaviour
 
     public void AcceptQuest()
     {
+        Health.kills = 0;
+
         if (c == 0)
         {
             StartCoroutine(QuestCoroutine1());
@@ -65,82 +71,124 @@ public class XpLvlLive : MonoBehaviour
 
     private IEnumerator QuestCoroutine1()
     {
-        yield return new WaitForSeconds(60f);
+        float totalTime1 = 60f;
+        float remainingTime1 = totalTime1;
 
-        if (Health.kills >= 1)
+        while (remainingTime1 > 0)
+        {
+            timeText.text = "Kill 5 Enemies: " + Mathf.Ceil(remainingTime1) + " seconds";
+            yield return new WaitForSeconds(1f);
+            remainingTime1 -= 1f;
+        }
+
+        if (Health.kills >= 5)
         {
             CompleteQuest();
             killText.text = "Kill 10 Enemies";
+            timeText.text = textCompleted;
         }
         else
         {
-            Debug.Log("Your quest have expired!");
+            timeText.text = "Your quest has expired!";
         }
-            
     }
     private IEnumerator QuestCoroutine2()
     {
-        yield return new WaitForSeconds(180f);
+        float totalTime2 = 120f;
+        float remainingTime2 = totalTime2;
+
+        while (remainingTime2 > 0)
+        {
+            timeText.text = "Kill 10 Enemies: " + Mathf.Ceil(remainingTime2) + " seconds";
+            yield return new WaitForSeconds(1f);
+            remainingTime2 -= 1f;
+        }
 
         if (Health.kills >= 10)
         {
             CompleteQuest();
             killText.text = "Kill 25 Enemies";
+            timeText.text = textCompleted;
         }
         else
         {
-            Debug.Log("Your quest have expired!");
+            timeText.text = "Your quest has expired!";
         }
-
     }
     private IEnumerator QuestCoroutine3()
     {
-        yield return new WaitForSeconds(240f);
+        float totalTime3 = 240f;
+        float remainingTime3 = totalTime3;
+
+        while (remainingTime3 > 0)
+        {
+            timeText.text = "Kill 25 Enemies: " + Mathf.Ceil(remainingTime3) + " seconds";
+            yield return new WaitForSeconds(1f);
+            remainingTime3 -= 1f;
+        }
 
         if (Health.kills >= 25)
         {
             CompleteQuest();
             killText.text = "Kill 50 Enemies";
+            timeText.text = textCompleted;
         }
         else
         {
-            Debug.Log("Your quest have expired!");
+            timeText.text = "Your quest has expired!";
         }
 
     }
     private IEnumerator QuestCoroutine4()
     {
-        yield return new WaitForSeconds(360f);
+
+        float totalTime4 = 360f;
+        float remainingTime4 = totalTime4;
+
+        while (remainingTime4 > 0)
+        {
+            timeText.text = "Kill 50 Enemies: " + Mathf.Ceil(remainingTime4) + " seconds";
+            yield return new WaitForSeconds(1f);
+            remainingTime4 -= 1f;
+        }
 
         if (Health.kills >= 50)
         {
             CompleteQuest();
             killText.text = "Kill 100 Enemies";
+            timeText.text = textCompleted;
         }
         else
         {
-            Debug.Log("Your quest have expired!");
+            timeText.text = "Your quest has expired!";
         }
 
     }
     private IEnumerator QuestCoroutine5()
     {
-        yield return new WaitForSeconds(360f);
+        float totalTime4 = 500f;
+        float remainingTime4 = totalTime4;
+
+        while (remainingTime4 > 0)
+        {
+            timeText.text = "Kill 100 Enemies: " + Mathf.Ceil(remainingTime4) + " s";
+            yield return new WaitForSeconds(1f);
+            remainingTime4 -= 1f;
+        }
 
         if (Health.kills >= 100)
         {
             CompleteQuest();
-            killText.text = "All Quests Completed";
+            killText.text = "All quests has been completed..";
         }
         else
         {
-            Debug.Log("Your quest have expired!");
+            timeText.text = "Your quest has expired!";
         }
-
     }
     public void CompleteQuest()
     {
-        xp += 100;
+        xp += 300;
         money += 150;
         LevelUp();
         c++;
@@ -155,7 +203,7 @@ public class XpLvlLive : MonoBehaviour
 
     void LevelUp()
     {
-        int xpNeeded = 200 + (level - 1) * 100; //Výpoèet potøebných XP pro level up
+        int xpNeeded = 100 + (level - 1) * 100; //Výpoèet potøebných XP pro level up
 
         if (xp >= xpNeeded && level <= 10)
         {
