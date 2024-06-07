@@ -19,8 +19,6 @@ public class XpLvlLive : MonoBehaviour
 
     private int c = 0;
 
-    string textCompleted = "Quest Completed Succesfuly";
-
 
 
     [SerializeField] private Text xpText;
@@ -42,29 +40,29 @@ public class XpLvlLive : MonoBehaviour
     {
         Health.kills = 0;
 
-        if (c == 0)
+        if (c == 0 || c == 1)
         {
             StartCoroutine(QuestCoroutine1());
         }
-        if (c == 1)
+        if (c == 2 || c == 3)
         {
             StartCoroutine(QuestCoroutine2());
         }
-        if (c == 2)
+        if (c == 4 || c == 5)
         {
             StartCoroutine(QuestCoroutine3());
         }
-        if (c == 3)
+        if (c == 6 || c == 7)
         {
             StartCoroutine(QuestCoroutine4());
         }
-        if (c == 4)
+        if (c == 8 || c == 9)
         {
             StartCoroutine(QuestCoroutine5());
         }
-        if (c >= 5)
+        if (c >= 10)
         {
-            Debug.Log("You have already completed all quests!");
+            timeText.text = "You have already completed all quests!";
         }
 
     }
@@ -84,8 +82,10 @@ public class XpLvlLive : MonoBehaviour
         if (Health.kills >= 5)
         {
             CompleteQuest();
-            killText.text = "Kill 10 Enemies";
-            timeText.text = textCompleted;
+            if (c == 2)
+            {
+                killText.text = "Kill 10 Enemies";
+            }
         }
         else
         {
@@ -107,8 +107,10 @@ public class XpLvlLive : MonoBehaviour
         if (Health.kills >= 10)
         {
             CompleteQuest();
-            killText.text = "Kill 25 Enemies";
-            timeText.text = textCompleted;
+            if (c == 4)
+            {
+                killText.text = "Kill 25 Enemies";
+            }
         }
         else
         {
@@ -130,8 +132,10 @@ public class XpLvlLive : MonoBehaviour
         if (Health.kills >= 25)
         {
             CompleteQuest();
-            killText.text = "Kill 50 Enemies";
-            timeText.text = textCompleted;
+            if (c == 6)
+            {
+                killText.text = "Kill 50 Enemies";
+            }
         }
         else
         {
@@ -155,8 +159,10 @@ public class XpLvlLive : MonoBehaviour
         if (Health.kills >= 50)
         {
             CompleteQuest();
-            killText.text = "Kill 100 Enemies";
-            timeText.text = textCompleted;
+            if (c == 8)
+            {
+                killText.text = "Kill 100 Enemies";
+            }
         }
         else
         {
@@ -166,20 +172,19 @@ public class XpLvlLive : MonoBehaviour
     }
     private IEnumerator QuestCoroutine5()
     {
-        float totalTime4 = 500f;
-        float remainingTime4 = totalTime4;
+        float totalTime5 = 500f;
+        float remainingTime5 = totalTime5;
 
-        while (remainingTime4 > 0)
+        while (remainingTime5 > 0)
         {
-            timeText.text = "Kill 100 Enemies: " + Mathf.Ceil(remainingTime4) + " s";
+            timeText.text = "Kill 100 Enemies: " + Mathf.Ceil(remainingTime5) + " s";
             yield return new WaitForSeconds(1f);
-            remainingTime4 -= 1f;
+            remainingTime5 -= 1f;
         }
 
         if (Health.kills >= 100)
         {
             CompleteQuest();
-            killText.text = "All quests has been completed..";
         }
         else
         {
@@ -192,6 +197,7 @@ public class XpLvlLive : MonoBehaviour
         money += 150;
         LevelUp();
         c++;
+        timeText.text = "";
     }
 
     public void UpdateUI()
@@ -203,7 +209,7 @@ public class XpLvlLive : MonoBehaviour
 
     void LevelUp()
     {
-        int xpNeeded = 100 + (level - 1) * 100; //Výpoèet potøebných XP pro level up
+        int xpNeeded = 150 + (level - 1) * 100; //Výpoèet potøebných XP pro level up
 
         if (xp >= xpNeeded && level <= 10)
         {
@@ -211,10 +217,9 @@ public class XpLvlLive : MonoBehaviour
             xp -= xpNeeded;
             money += 100;
 
-            // Mùžete pøidat další vlastnosti pøi level up, napøíklad zvýšení životù, síly, apod.
             LevelUp();
         }
-        if (xp>= xpNeeded && level > 10)
+        if (xp >= xpNeeded && level > 10)
         {
             level++;
             xp -= xpNeeded;
