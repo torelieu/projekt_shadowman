@@ -12,6 +12,7 @@ TagManager:
   - SpawnZoneNormalDole
   - SpawnZoneNormal
   - Enemy
+  - Portal
   layers:
   - Default
   - TransparentFX

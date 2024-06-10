@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hra.unity
     guid: 1bce4104c58061c47bdba099e445ca71
+  - enabled: 1
+    path: Assets/Scenes/FinalBoss.unity
+    guid: a87685ba9b7ae6942a4ec307bd04a6ce
   m_configObjects: {}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class XpLvlLive : MonoBehaviour
@@ -10,6 +11,9 @@ public class XpLvlLive : MonoBehaviour
     private int xp = 0;
     private int level = 1;
     public static int money = 0;
+
+    [SerializeField]
+    GameObject portal;
 
     public Text text;
 
@@ -34,6 +38,11 @@ public class XpLvlLive : MonoBehaviour
     {
         UpdateUI();
         text.text = Convert.ToString(Health.kills);
+
+        if (level >= 20)
+        {
+            portal.SetActive(true);
+        }
     }
 
     public void AcceptQuest()
@@ -226,6 +235,14 @@ public class XpLvlLive : MonoBehaviour
             money += 150;
 
             LevelUp();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Portal"))
+        {
+            SceneManager.LoadScene("FinalBoss");
         }
     }
 }
