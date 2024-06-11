@@ -13,6 +13,10 @@ TagManager:
   - SpawnZoneNormal
   - Enemy
   - Portal
+  - Boss
+  - Orb
+  - Spike
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -243,6 +243,7 @@ public class XpLvlLive : MonoBehaviour
         if (collision.CompareTag("Portal"))
         {
             SceneManager.LoadScene("FinalBoss");
+            Time.timeScale = 0;
         }
     }
 }
